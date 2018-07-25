@@ -15,6 +15,7 @@ public class BrightnessRegulator : MonoBehaviour
     private int degree = 0;
     //発行速度
     private int speed = 10;
+
     //ターゲットのデフォルト色
     Color defaulotcolor = Color.white;
 
@@ -54,5 +55,15 @@ public class BrightnessRegulator : MonoBehaviour
     {
         //角度を180に設定
         this.degree = 180;
+
+        // 衝突したときにスコアを更新する
+        
+
+        if (tag == "SmallStarTag") {GameObject.Find("Canvas").GetComponent<ScoreController>().AddScore(1); }
+        if (tag == "LargeStarTag") {GameObject.Find("Canvas").GetComponent<ScoreController>().AddScore(10); }
+        if (tag == "SmallCloudTag") {GameObject.Find("Canvas").GetComponent<ScoreController>().AddScore(20); }
+        if (tag == "LargeCloudTag") {GameObject.Find("Canvas").GetComponent<ScoreController>().AddScore(100); }
+
+
     }
 }
